@@ -1,3 +1,4 @@
+
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -34,7 +35,7 @@ select_columns = {"Quantidade": "Quantidade",
                 "Preço_médio": "Preço médio",
                 "Frete_médio": "Frete médio"}
 
-brazil_states = json.load(open("brazil_geo.json", "r"))
+brazil_states = json.load(open("deploy_cd/brazil_geo.json", "r"))
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
 
