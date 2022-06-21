@@ -12,9 +12,8 @@ import numpy as np
 import pandas as pd
 import json
 
-app = Dash(__name__)
 
-server = app.server # IMPORTANTE
+
 
 olist_dataset = pd.read_csv('my_dataset.csv')
 
@@ -42,6 +41,7 @@ select_columns = {"Quantidade": "Quantidade",
 brazil_states = json.load(open("deploy_cd/brazil_geo.json", "r"))
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
+server = app.server # IMPORTANTE
 
 fig = px.choropleth_mapbox(df12, locations="Estado", color="Quantidade",
                             center={"lat": -16.95, "lon": -47.78}, zoom=3,
