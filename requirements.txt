@@ -1,0 +1,8 @@
+# Instalação do Plotly
+Plotly
+
+# Instalação do Dash
+dash
+pandas
+
+gunicorn
