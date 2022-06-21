@@ -12,6 +12,10 @@ import numpy as np
 import pandas as pd
 import json
 
+app = Dash(__name__)
+
+server = app.server # IMPORTANTE
+
 olist_dataset = pd.read_csv('my_dataset.csv')
 
 df = olist_dataset['seller_state'].value_counts().sort_values(ascending=False)
