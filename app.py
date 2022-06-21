@@ -1,4 +1,3 @@
-
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -12,9 +11,10 @@ import numpy as np
 import pandas as pd
 import json
 
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
 
-
-
+# assume you have a "long-form" data frame
+# see https://plotly.com/python/px-arguments/ for more options
 olist_dataset = pd.read_csv('my_dataset.csv')
 
 df = olist_dataset['seller_state'].value_counts().sort_values(ascending=False)
@@ -40,8 +40,9 @@ select_columns = {"Quantidade": "Quantidade",
 
 brazil_states = json.load(open("deploy_cd/brazil_geo.json", "r"))
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
 server = app.server # IMPORTANTE
+
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
 
 fig = px.choropleth_mapbox(df12, locations="Estado", color="Quantidade",
                             center={"lat": -16.95, "lon": -47.78}, zoom=3,
